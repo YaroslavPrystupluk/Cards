@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Cards</title>
+
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/0394a5040c.js" crossorigin="anonymous" defer></script>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- Style CSS -->
+	<link rel="stylesheet" href="./css/style.css">
+
+	<!-- Script JS -->
+	<script src="./js/script.js" type="module"></script>
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<header class="header">
+			<div class="header__logo">
+				<img src="./img/logo.png" class="header__img-logo" alt="logo">
+				<p class="header__text-logo"><span>C</span>ards <span>E</span>nter</p>
+			</div>
+
+			<div class="header__useable"></div>
+		</header>
+
+		<section class="filters">
+			<form class="filters__form">
+				<div class="filters__text">
+					<label for="filter-text" class="filters__text-head">Візит містить</label>
+					<input type="text" class="filters__text-input" id="filter-text" disabled>
+				</div>
+				<div class="filters__status">
+					<label for="filter-status" class="filters__status-head">Статус</label>
+					<select id="filter-status" class="filters__status-select" disabled>
+						<option class="filters__status-option" selected>All</option>
+						<option class="filters__status-option">Open</option>
+						<option class="filters__status-option">Done</option>
+					</select>
+				</div>
+				<div class="filters__urgency">
+					<label for="filter-urgency" class="filters__urgency-head">Терміновість візиту</label>
+					<select id="filter-urgency" class="filters__urgency-select" disabled>
+						<option class="filters__urgency-option" selected>All</option>
+						<option class="filters__urgency-option">Low</option>
+						<option class="filters__urgency-option">Normal</option>
+						<option class="filters__urgency-option">High</option>
+					</select>
+				</div>
+			</form>
+		</section>
+
+		<section class="cards">
+
+		</section>
+
+		<footer class="footer">
+			<p class="footer__copy">&copy; All rights reserved</p>
+		</footer>
+
+	</div>
+
+</body>
+
+</html>
