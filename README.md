@@ -1,80 +1,73 @@
-# Вам нужно создать страницу, на которой Секретарша сможет создавать карточки, описывающие запланированные визиты к врачам.
+You need to create a page where the receptionist can create cards describing scheduled doctor appointments.
+The page should include:
+Header (header) of the page:
+- in the upper left corner - the logo. You can use any logo
+in the right corner - Login button. After successful authorization it should change to the "Create Visit" button.
+Under Header - form for filtering visits. There should be 3 fields in this form:
+search by visit title/content
+search by status (Open/Done) (visit has passed or not yet)
+urgency of the visit (High, Normal, Low).
+Under the filters form there is a list of created visits.
+Teamwork
+On this project all students are divided into groups of three. Students can distribute tasks among themselves. When submitting the project, it is necessary to indicate in the Readme.md file who performed which part of the task.
+Technical requirements
+When a user visits the page for the first time, there should be an inscription No items have been added on the board. The same inscription should appear if the user has no added cards (for example, he deleted them all).
+After clicking on the Login button, a modal window appears where the user enters his email and password. If it is correct, the list of previously created visits is displayed on the page.
+When you click on the Create Visit button, a modal window appears where you can create a new card.
+To create classes, you should use the class syntax from ES6.
+You can use fetch or axios to execute AJAX requests.
+After executing any AJAX requests, the page should not reload. When adding/removing a card and other similar operations, the entire list of cards should not be reloaded from the server. It is necessary to use data from the server response and Javascript to update the information on the page.
+When refreshing the page or closing it, previously added notes should not disappear.
+It is desirable to divide the project into modules using ES6 modules.
+Modal window "Create visit"
+The modal window should contain:
 
-На странице должны присутствовать:
+A drop-down list (select) with a choice of doctor. Depending on the selected doctor, fields that need to be filled in for the visit to this doctor will appear below this drop-down list.
+There should be three options in the drop-down list - Cardiologist, Dentist, Therapist.
+After selecting a doctor from the drop-down list, the fields to make an appointment with that doctor should appear below it. Several fields are the same for all three doctors:
+purpose of visit
+brief description of the visit
+drop-down field - urgency (regular, priority, urgent)
+FULL NAME
+Also, each of the doctors has their own unique fields to fill out. If the Cardiologist option is selected, the following fields additionally appear for entering information:
+normal blood pressure
+body mass index
+cardiovascular disease
+age
+If the Dentist option is selected, you must additionally fill in:
+date of last visit
+If the Therapist option is selected, you must additionally fill in:
+age
+Create button. When you click on the button, an AJAX request is sent to the corresponding address, and if the response contains information about the newly created card, the card is created in the Board of visits on the page, the modal window is closed.
+Close button - closes the modal window without saving information and creating a card. Clicking on the area outside the modal window - closes the modal window as well.
+All input fields, regardless of the selected option, except for the field for additional comments - are mandatory for data entry. Validation for data correctness is not necessary.
+Card describing the visit
+A card that is created on click appears on the task board. It should look something like this:
+Interface
+It should contain:
+The full name that was entered when the card was created
+The doctor the person has an appointment with
+Show more button. By clicking on it, the card expands, and the rest of the information that was entered when creating the visit appears
+Edit button. If you click on it, instead of the text content of the card, a form appears where you can edit the entered fields. The same as in the modal window when creating a card
+An icon with a cross in the upper right corner, if you click on it, the card will be deleted.
+Visit Filters
+Card filter (input field for entering search text by title or description of visit, dropdown list by status, dropdown list by priority) you need to do on the front-end - that is, when you change the value of any form element (selected item in the dropdown list, entered something in the input) you filter the list of cards previously received from the server, and display the new information on the screen.
 
-Header (шапка) страницы:
-в левом верхнем углу - логотип. Можно взять любой
-в правом углу - Кнопка "Вход". После успешной авторизации она должна меняться на Кнопку "Создать визит".
-Под Header - форма для фильтрации визитов. В этой форме должно быть 3 поля:
-поиск по заголовку/содержимому визита
-поиск по статусу (Open/Done) (визит прошел или еще нет)
-срочность визита (High, Normal, Low)
-Под формой фильтров - список созданных визитов.
-Командная работа
-На данном проекте все студенты разделены на группы по три человека. Студенты могут распределять между собой задачи самостоятельно. При сдаче проекта необходимо в файле Readme.md указать, кто выполнял какую часть задания.
+The system should be similar to filters in online stores (for example, on the left here).
 
-Технические требования
-При первом посещении пользователем страницы, на доске должна быть надпись No items have been added. Эта же надпись должна быть, если у пользователя нету ни одной добавленной карточки (например, он их все удалил).
-По клику на кнопку Вход появляется модальное окно, в котором пользователь вводит свой email и пароль. Если он верный - пользователю на странице выводится список ранее созданных визитов.
-По клику на кнопку Создать визит появляется модальное окно, в котором можно создать новую карточку.
-Для создания классов нужно использовать синтаксис class из ES6.
-Для выполнения AJAX запросов можно использовать fetch или axios.
-После выполнения любых AJAX запросов, страница не должна перезагружаться. При добавлении/удалении карточки и других подобных операциях, с сервера не должен заново загружаться весь список карточек. Необходимо использовать данные из ответа сервера и Javascript для обновления информации на странице.
-При обновлении страницы или ее закрытии, ранее добавленные заметки не должны пропадать.
-Желательно разделить проект на модули с помощью ES6 modules.
-Модальное окно "Создать визит"
-В модальном окне должны присутствовать:
+Classes
+JavaScript code must necessarily contain such classes:
 
-Выпадающий список (select) с выбором врача. В зависимости от выбранного врача, под этим выпадающим списком будут появляться поля, которые нужно дозаполнить для визита к этому врачу.
-В выпадающем списке должно быть три опции - Кардиолог, Стоматолог, Терапевт.
-После выбора доктора из выпадающего списка, под ним должны появиться поля для записи к этому доктору. Несколько полей являются одинаковыми для всех трех докторов:
-цель визита
-краткое описание визита
-выпадающее поле - срочность (обычная, приоритетная, неотложная)
-ФИО
-Также, каждый из докторов имеет свои уникальные поля для заполнения. Если выбрана опция Кардиолог, дополнительно появляются следующие поля для ввода информации:
-обычное давление
-индекс массы тела
-перенесенные заболевания сердечно-сосудистой системы
-возраст
-Если выбрана опция Стоматолог, дополнительно необходимо заполнить:
-дата последнего посещения
-Если выбрана опция Терапевт, дополнительно необходимо заполнить:
-возраст
-Кнопка Создать. При клике на кнопку отправляется AJAX запрос на соответствующий адрес, и если в ответе пришла информация о новосозданной карточке - создается карточка в Доске визитов на странице, модальное окно закрывается.
-Кнопка Закрыть - закрывает модальное окно без сохранения информации и создания карточки. По клику на область вне модального окна - модальное окно также закрывается.
-Все поля ввода, независимо от выбранной опции, кроме поля для дополнительных комментариев - обязательны для ввода данных. Валидацию на корректность данных делать не обязательно.
-Карточка, описывающая визит
-Карточка, которая создается по клику, появляется на доске задач. Это должно выглядеть примерно так:
+Modal class (pop-up window);
+Visit class (describing fields and methods common for all visits to any doctor);
+child classes VisitDentist, VisitCardiologist, VisitTherapist;
+The methods and properties of each class you need to think about on your own. If necessary, you can add other classes as well.
 
-интерфейс
+Implementation requirements
+The design can be anything you want, but must have.
 
-В ней должны присутствовать:
-
-ФИО, которые были введены при создании карточки
-Врач, к которому человек записан на прием
-Кнопка Показать больше. По клику на нее карточка расширяется, и появляется остальная информация, которая была введена при создании визита
-Кнопка Редактировать. При нажатии на нее, вместо текстового содержимого карточки появляется форма, где можно отредактировать введенные поля. Такая же, как в модальном окне при создании карточки
-Иконка с крестиком в верхнем правом углу, при нажатии на которую карточка будет удалена
-Фильтры визитов
-Фильтр карточек (поле input для ввода текста поиска по заголовку или описанию визита, выпадающий список по статусу, выпадающий список по приоритету) вам нужно делать на фронт-енде - то есть при изменении value любого элемента формы (выбран пункт в выпадающем списке, было введено что-то в input) вы фильтруете список ранее полученных с сервера карточек, и отображаете на экране новую информацию.
-
-По принципу работы система должна быть похожа на фильтры в интернет-магазинах (например, слева здесь).
-
-Классы
-В JavaScript коде обязательно должны быть такие классы:
-
-класс Modal (всплывающее окно);
-класс Visit (описывающий общие для всех визитов к любому врачу поля и методы);
-дочерние классы VisitDentist, VisitCardiologist, VisitTherapist;
-Методы и свойства каждого класса вам нужно продумать самостоятельно. При необходимости, вы можете добавлять также другие классы.
-
-Требования к реализации
-Дизайн может быть любой, но должен быть.
-
-AJAX часть
-Вся необходимая документация по взаимодействию с AJAX сервером находится здесь.
-
-Необязательное задание продвинутой сложности
-При создании карточки визита, выполнять валидацию корректности введенных данных. Правила для валидации можно придумать самостоятельно (например, обычное давление должно являться числом, и находиться в диапазоне от 50 до 160)
-Добавить возможность пользователю перемещать карточки по доске методом Drag&Drop. Такие манипуляции с карточкой не влияют на месторасположение остальных карточек. После перетягивания карточки, не нужно "запоминать" ее новое местоположение. При перезагружке страницы она может вернуться на свое первоначальное место.
+AJAX part
+All the necessary documentation for interacting with the AJAX server can be found here.
+Optional task of advanced complexity
+When creating a visit card, perform validation of the correctness of the entered data. Rules for validation can be made up by yourself (for example, normal blood pressure should be a number and should be in the range from 50 to 160).
+Add the ability for the user to move cards around the board using Drag&Drop method. Such manipulation of a card does not affect the location of other cards. After dragging a card, there is no need to "memorize" its new location. When the page is reloaded, it can return to its original location.
